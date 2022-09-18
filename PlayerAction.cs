@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 public class PlayerAction : MonoBehaviour
 {
-    public UnityEvent OnGemCollision = new UnityEvent();
-    public UnityEvent OnEnemyCollision = new UnityEvent();
+    [SerializeField] private UnityEvent _onGemCollision = new UnityEvent();
+    [SerializeField] private UnityEvent _onEnemyCollision = new UnityEvent();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Gem>(out Gem gem))
         {
-            OnGemCollision.Invoke();    
+            _onGemCollision.Invoke();    
         }
     }
 
@@ -20,7 +20,7 @@ public class PlayerAction : MonoBehaviour
     {
         if (collision.collider.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            OnEnemyCollision.Invoke();
+            _onEnemyCollision.Invoke();
             Debug.Log("Enemy collision");
         }
     }

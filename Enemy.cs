@@ -12,7 +12,7 @@ public class Enemy : PhysicsObject
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        targetVelocity = Vector2.left;
+        TargetVelocity = Vector2.left;
     }
 
     protected override void Update()
@@ -23,7 +23,7 @@ public class Enemy : PhysicsObject
     {
         if (collision.TryGetComponent<Border>(out Border border))
         {
-            targetVelocity *= -1;
+            TargetVelocity *= -1;
 
             _spriteRenderer.flipX = !_spriteRenderer.flipX;
         }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Gem : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
@@ -21,7 +22,7 @@ public class Gem : MonoBehaviour
 
     private IEnumerator Picked()
     {
-        _animator.SetBool("isPick", true);
+        _animator.SetBool(AnimatorGem.HashAnimationsName.IsPick, true);
 
         yield return new WaitUntil(() => gameObject.transform.position.y >= 2);
 

@@ -6,16 +6,18 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private Image[] _hearts;
-    private int heartsCount;
+    private int _heartsCount;
 
     private void Start()
     {
-        heartsCount = _hearts.Length;
+        _heartsCount = _hearts.Length;
     }
 
-    public void GetDamage()
+    public void TakeDamage()
     {
-        heartsCount--;
+        if (_heartsCount > 0)
+            _heartsCount--;
+
         UpdateHeartsBar();
     }
 
@@ -23,14 +25,7 @@ public class PlayerHealth : MonoBehaviour
     {
         for (int i = 0; i < _hearts.Length; i++)
         {
-            if (i < heartsCount)
-            {
-                _hearts[i].enabled = true;
-            }
-            else
-            {
-                _hearts[i].enabled = false;
-            }
+            _ = i < _heartsCount ? _hearts[i].enabled = true : _hearts[i].enabled = false;
         }
     }
 

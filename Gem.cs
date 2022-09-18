@@ -7,6 +7,8 @@ public class Gem : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
 
+    private int _targetPositionY = 2;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -24,7 +26,7 @@ public class Gem : MonoBehaviour
     {
         _animator.SetBool(AnimatorGem.HashAnimationsName.IsPick, true);
 
-        yield return new WaitUntil(() => gameObject.transform.position.y >= 2);
+        yield return new WaitUntil(() => gameObject.transform.position.y >= _targetPositionY);
 
         gameObject.SetActive(false);
     }

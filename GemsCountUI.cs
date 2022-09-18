@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GemsCountUI : MonoBehaviour
 {
     [SerializeField] private Text _gemsText;
+
     private int _gemsCount;
 
     public void Pick()

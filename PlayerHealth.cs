@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private Image[] _hearts;
+
     private int _heartsCount;
 
     private void Start()
